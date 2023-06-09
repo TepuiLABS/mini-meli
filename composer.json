@@ -1,54 +1,50 @@
 {
     "name": "tepuilabs/mini-meli",
-    "description": "Generate access tokens",
-    "type": "project",
+    "description": "This is my package mini-meli",
+    "keywords": [
+        "mini-meli",
+        "mini-meli"
+    ],
+    "homepage": "https://github.com/mini-meli/mini-meli",
     "license": "MIT",
     "authors": [
         {
-            "name": "angel cruz",
-            "email": "angel@tepuilabs.dev"
+            "name": "Angel",
+            "email": "bullgram@gmail.com",
+            "role": "Developer"
         }
     ],
     "require": {
-        "devcoder-xyz/php-dotenv": "^1.0",
-        "guzzlehttp/guzzle": "^7.3"
+        "php": "^8.1",
+        "guzzlehttp/guzzle": "^7.7"
     },
-	"autoload": {
-		"psr-4": {
-			"Tepuilabs\\MiniMeLi\\": "src"
-		}
-	},
-	"autoload-dev": {
-		"psr-4": {
-			"Tepuilabs\\MiniMeLi\\Tests\\": "tests"
-		}
-	},
-	"scripts": {
-		"psalm": "vendor/bin/psalm",
-		"test": "vendor/bin/phpunit",
-		"test-coverage": "vendor/bin/phpunit --coverage-html coverage",
-		"format": "vendor/bin/php-cs-fixer fix --allow-risky=yes",
-		"all": "composer psalm && composer format"
-	},
-	"config": {
-		"sort-packages": true
-	},
-	"minimum-stability": "dev",
-	"prefer-stable": true,
-	"funding": [
-		{
-			"type": "patreon",
-			"url": "https://www.patreon.com/angelcruzdev"
-		},
-		{
-			"type": "other",
-			"url": "https://ko-fi.com/angelcruzdev"
-		}
-	],
     "require-dev": {
-        "abr4xas/utils": "^3.0",
-        "friendsofphp/php-cs-fixer": "^2.18",
-        "phpunit/phpunit": "^9.5",
-        "vimeo/psalm": "^4.7"
-    }
+        "pestphp/pest": "^1.20",
+        "laravel/pint": "^1.2",
+        "spatie/ray": "^1.28"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tepuilabs\\MeliServices\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tepuilabs\\MeliServices\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
