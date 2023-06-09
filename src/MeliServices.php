@@ -9,9 +9,7 @@ use Tepuilabs\MeliServices\Exceptions\GenericException;
 
 class MeliServices
 {
-    /**
-     * Undocumented function
-     */
+    /** Undocumented function */
     public function __construct(protected array $params)
     {
     }
