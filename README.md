@@ -3,9 +3,10 @@
 </p>
 
 
-### mini-meli
+## mini-meli
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/tepuilabs/mini-meli.svg?style=flat-square)](https://packagist.org/packages/tepuilabs/mini-meli)
+[![Tests](https://img.shields.io/github/actions/workflow/status/tepuilabs/mini-meli/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/tepuilabs/mini-meli/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/tepuilabs/mini-meli.svg?style=flat-square)](https://packagist.org/packages/tepuilabs/payment-processors)
 
 
@@ -24,7 +25,7 @@ usando composer
 composer require tepuilabs/mini-meli
 ```
 
-primer necesitamos crear un archivo `.env` con lo siguiente:
+agrega en tu archivo de cofiguración lo siguiente:
 
 ```yml
 GRANT_TYPE=authorization_code
@@ -32,8 +33,8 @@ CLIENT_ID=
 CLIENT_SECRET=
 REDIREC_URL=http://localhost:9000
 ```
-
-> NOTA: estos datos los debes configurar en mercado libre cuando crees una applicación, los unicos datos que necesitas son el client id / secret
+> **Note**
+> estos datos los debes configurar en mercado libre cuando crees una applicación, los unicos datos que necesitas son el client id / secret
 
 
 luego necesitas configurar algo como lo siguiente:
@@ -41,27 +42,18 @@ luego necesitas configurar algo como lo siguiente:
 ```php
 <?php
 
-use DevCoder\DotEnv;
-use Abr4xas\Utils\PrettyPrintArray;
 use Tepuilabs\MiniMeLi\MeliServices;
 
 require 'vendor/autoload.php';
 
-
-(new DotEnv(__DIR__ . '/.env'))->load();
-
-
 $params = [
-    'grant_type' => getenv('GRANT_TYPE'),
-    'client_id' => getenv('CLIENT_ID'),
-    'code' => $_GET['code'],
-    'client_secret' => getenv('CLIENT_SECRET'),
-    'redirect_uri' => getenv('REDIREC_URL')
+    'grant_type' => '',
+    'client_id' => '',
+    'code' => $_GET['code'], // from url
+    'client_secret' => '',
+    'redirect_uri' => ''
 ];
-
 
 $response = (new MeliServices($params))->generateAccessToken();
 
-
-PrettyPrintArray::prettyPrintArray($response);
 ```
