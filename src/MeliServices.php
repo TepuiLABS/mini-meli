@@ -1,27 +1,25 @@
 <?php
-namespace Tepuilabs\MiniMeLi;
 
+namespace Tepuilabs\MeliServices;
+
+use Exception;
 use GuzzleHttp\Client;
-use Tepuilabs\MiniMeLi\Exceptions\GenericException;
+use GuzzleHttp\Exception\GuzzleException;
+use Tepuilabs\MeliServices\Exceptions\GenericException;
 
 class MeliServices
 {
-    protected array $params;
-
     /**
      * Undocumented function
-     *
-     * @param array $params
      */
-    public function __construct(array $params)
+    public function __construct(protected array $params)
     {
-        $this->params = $params;
     }
 
     /**
-     * Undocumented function
+     * generateAccessToken
      *
-     * @return array
+     * @throws GenericException|GuzzleException
      */
     public function generateAccessToken(): array
     {
@@ -33,38 +31,31 @@ class MeliServices
             'redirect_uri' => $this->params['redirect_uri'],
         ];
 
-        return $this->httpRequest('oauth/token', $params, 'POST');
+        return $this->httpRequest($params);
     }
 
     /**
      * Undocumented function
      *
-     * @param string $url
-     * @param array $fields
-     * @param string $method
-     * @return array
+     * @throws GenericException|GuzzleException
      */
-    private function httpRequest(string $url, array $fields, string $method): array
+    private function httpRequest(array $fields): array
     {
         $client = new Client([
             'base_uri' => 'https://api.mercadolibre.com/',
         ]);
 
         $args = [];
-        if (! in_array($method, ['POST'])) {
-            throw new GenericException('Not implemented yet', 1);
-        }
 
         $args['form_params'] = $fields;
 
         try {
-            $request = $client->request($method, $url, $args);
+            $request = $client->request('POST', 'oauth/token', $args);
             $body = $request->getBody()->getContents();
-            $obj = json_decode($body, true);
 
-            return $obj;
-        } catch (GenericException $e) {
-            throw new GenericException('Cannot connect to api.mercadolibre.com');
+            return json_decode($body, true);
+        } catch (Exception $e) {
+            throw new GenericException($e->getMessage());
         }
     }
 }
