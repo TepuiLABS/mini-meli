@@ -1,10 +1,20 @@
 {
     "preset": "laravel",
     "rules": {
-        "phpdoc_line_span": {
-            "property": "single",
-            "const": "single",
-            "method": "single"
-        }
+        "blank_line_before_statement": true,
+        "method_argument_space": true,
+        "single_trait_insert_per_statement": true,
+        "types_spaces": {
+            "space": "single"
+        },
+        "declare_strict_types": true,
+        "align_multiline_comment": true,
+        "array_indentation": true,
+        "array_syntax": true,
+        "concat_space": {
+            "spacing": "one"
+        },
+        "explicit_string_variable": true,
+        "fully_qualified_strict_types": true
     }
 }

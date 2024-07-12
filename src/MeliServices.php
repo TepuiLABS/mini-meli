@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tepuilabs\MeliServices;
 
 use Exception;
@@ -9,31 +11,26 @@ use Tepuilabs\MeliServices\Exceptions\GenericException;
 
 class MeliServices
 {
-    /** Undocumented function */
-    public function __construct(protected array $params)
-    {
-    }
+    public function __construct(protected array $params) {}
 
     /**
-     * generateAccessToken
+     * generate access token
      *
      * @throws GenericException|GuzzleException
      */
     public function generateAccessToken(): array
     {
-        $params = [
-            'grant_type' => $this->params['grant_type'],
+        return $this->httpRequest([
+            'grant_type' => $this->params['grant_type'] ?? 'authorization_code',
             'client_id' => $this->params['client_id'],
             'code' => $this->params['code'],
             'client_secret' => $this->params['client_secret'],
             'redirect_uri' => $this->params['redirect_uri'],
-        ];
-
-        return $this->httpRequest($params);
+        ]);
     }
 
     /**
-     * Undocumented function
+     * make a http request to mercado libre api
      *
      * @throws GenericException|GuzzleException
      */

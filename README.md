@@ -10,10 +10,10 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/tepuilabs/mini-meli.svg?style=flat-square)](https://packagist.org/packages/tepuilabs/payment-processors)
 
 
-genera acces token de mercado libre.
+Genera access token de mercado libre.
 
 
-la idea de esto es poder generar access token para poder tener acceso a los recursos de Mercadolibre.
+la idea de esto es poder generar access token para poder tener acceso a los recursos de Mercado libre.
 
 
 ### como usar
@@ -31,13 +31,13 @@ agrega en tu archivo de cofiguración lo siguiente:
 GRANT_TYPE=authorization_code
 CLIENT_ID=
 CLIENT_SECRET=
-REDIREC_URL=http://localhost:9000
+REDIRECT_URL=http://localhost:9000
 ```
 > **Note**
-> estos datos los debes configurar en mercado libre cuando crees una applicación, los unicos datos que necesitas son el client id / secret
+> estos datos los debes configurar en mercado libre cuando crees una aplicación, los unicos datos que necesitas son el client id / secret
 
 
-luego necesitas configurar algo como lo siguiente:
+Luego necesitas configurar algo como lo siguiente:
 
 ```php
 <?php
@@ -47,7 +47,7 @@ use Tepuilabs\MiniMeLi\MeliServices;
 require 'vendor/autoload.php';
 
 $params = [
-    'grant_type' => '',
+    'grant_type' => '', // default authorization_code
     'client_id' => '',
     'code' => $_GET['code'], // from url
     'client_secret' => '',
@@ -55,5 +55,4 @@ $params = [
 ];
 
 $response = (new MeliServices($params))->generateAccessToken();
-
 ```
