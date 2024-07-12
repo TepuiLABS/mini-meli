@@ -11,9 +11,7 @@ use Tepuilabs\MeliServices\Exceptions\GenericException;
 
 class MeliServices
 {
-    public function __construct(protected array $params)
-    {
-    }
+    public function __construct(protected array $params) {}
 
     /**
      * generate access token
