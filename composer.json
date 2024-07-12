@@ -1,9 +1,8 @@
 {
     "name": "tepuilabs/mini-meli",
-    "description": "This is my package mini-meli",
+    "description": "Genera access token para poder tener acceso a los recursos disponibles de Mercado libre",
     "keywords": [
-        "mini-meli",
-        "mini-meli"
+        "mercado libre"
     ],
     "homepage": "https://github.com/mini-meli/mini-meli",
     "license": "MIT",
