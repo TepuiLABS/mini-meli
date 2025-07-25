@@ -1,5 +1,5 @@
 {
-    "preset": "laravel",
+    "preset": "psr12",
     "rules": {
         "blank_line_before_statement": true,
         "method_argument_space": true,

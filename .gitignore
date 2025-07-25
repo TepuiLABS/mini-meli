@@ -12,3 +12,4 @@ vendor
 .php-cs-fixer.cache
 index.php
 .env
+.phpunit.cache

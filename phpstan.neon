@@ -1,0 +1,15 @@
+parameters:
+    level: 8
+    paths:
+        - src
+        - tests
+    excludePaths:
+        - vendor
+    ignoreErrors:
+        - '#Access to an undefined property PHPUnit\\Framework\\TestCase::\$validParams#'
+        - '#Access to an undefined property.*Pest\\Mixins\\Expectation#'
+        - '#Cannot call method toBe\(\) on.*Pest\\Expectation#'
+        - '#Call to an undefined method.*Pest\\Expectation#'
+        - '#Call to an undefined method.*Pest\\Mixins\\Expectation#'
+        - '#Call to function method_exists\(\) with.*will always evaluate to true#'
+        - '#Undefined variable: \$this#'
