@@ -2,6 +2,15 @@
 
 All notable changes to `mini-meli` will be documented in this file.
 
+## v4.0.0 - 2025-08-16
+
+### What's Changed
+
+* ⬆️ Bump aglipanci/laravel-pint-action from 2.5 to 2.6 by @dependabot[bot] in https://github.com/TepuiLABS/mini-meli/pull/17
+* Brannon is on call, but here I am on Saturday fixing their shit. by @abr4xas in https://github.com/TepuiLABS/mini-meli/pull/18
+
+**Full Changelog**: https://github.com/TepuiLABS/mini-meli/compare/v3.0.0...v4.0.0
+
 ## v2.0.0 - 2023-06-09
 
 ### What's Changed
